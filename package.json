@@ -32,7 +32,7 @@
   },
   "config": {
     "commitizen": {
-        "path": ".config.js"
+        "path": "./config.js"
     }
 }
 }
