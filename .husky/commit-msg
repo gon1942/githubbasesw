@@ -1,7 +1,0 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-echo "aaaaaaaaaaaa"
-#npx --no-install commitizen init cz-conventional-changelog --save-dev --save-exact
-
-npx git-cz
-

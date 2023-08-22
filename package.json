@@ -8,7 +8,7 @@
     "test:watch": "jest --watch",
     "linta": "eslint *.js",
     "lint": "eslint './**/*.js'",
-    "prepare": "husky install"
+    "postinstall": "husky install && husky set .husky/prepare-commit-msg 'exec < /dev/tty && ./node_modules/.bin/cz --hook || true'"
   },
   "author": "",
   "license": "ISC",
@@ -38,8 +38,7 @@
   },
   "husky": {
     "hooks": {
-      "prepare-commit-msg": "hi",
-      "commit-msg": "hello"
+      "prepare-commit-msg": "exec < /dev/tty && npx git-cz --hook || true"
     }
   }
 }
