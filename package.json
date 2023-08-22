@@ -28,7 +28,7 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-node": "^11.1.0",
     "expect": "^29.6.1",
-    "husky": "^8.0.0"
+    "husky": "^8.0.3"
   },
   "config": {
     "commitizen": {
@@ -37,7 +37,7 @@
   },
   "husky": {
     "hooks": {
-        "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
-}
+  }
 }
