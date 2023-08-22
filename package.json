@@ -34,5 +34,10 @@
     "commitizen": {
       "path": "./cz-custom-changelog.js"
     }
-  }
+  },
+  "husky": {
+    "hooks": {
+        "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+}
 }
