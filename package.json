@@ -20,6 +20,7 @@
     "prettier": "^3.0.0"
   },
   "devDependencies": {
+    "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.44.0",
     "eslint-config-airbnb-base": "^15.0.0",
@@ -28,5 +29,10 @@
     "eslint-plugin-node": "^11.1.0",
     "expect": "^29.6.1",
     "husky": "^8.0.0"
-  }
+  },
+  "config": {
+    "commitizen": {
+        "path": ".config.js"
+    }
+}
 }
