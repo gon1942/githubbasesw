@@ -4,6 +4,10 @@ on:
     # 해당 브랜치에 푸쉬될 때 action 이 실행된다.
     branches:
       - main
+permissions:
+  id-token: write # This is required for requesting the JWT
+  contents: read
+  
 jobs:
   update_release_draft:
     runs-on: ubuntu-latest
