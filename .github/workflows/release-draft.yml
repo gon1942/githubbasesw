@@ -1,29 +1,18 @@
-name: github action tag release 
-
+name: Release Drafter
 on:
   push:
+    # 해당 브랜치에 푸쉬될 때 action 이 실행된다.
     branches:
       - main
-
 jobs:
-  setup-build-deploy:
-    name: Setup, Build, and Deploy
+  update_release_draft:
     runs-on: ubuntu-latest
-    permissions:
-      packages: write
-      contents: write
-      id-token: write 
-
     steps:
-    - name: Bump version and push tag
-      id: tag_version
-      uses: mathieudutour/github-tag-action@v6.1 
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }} 
-
-    - name: Create a GitHub release
-      uses: ncipollo/release-action@v1 
-      with:
-        tag: ${{ steps.tag_version.outputs.new_tag }}
-        name: Release ${{ steps.tag_version.outputs.new_tag }}
-        body: ${{ steps.tag_version.outputs.changelog }}
+      - uses: release-drafter/release-drafter@v5
+        # (Optional)
+        # workflow 에서 여러 구성이 필요할 때 config-name 에 오버라이드 해줍니다.
+        # 반드시 .github/ 에 위치해야합니다.
+        with:
+          config-name: release-drafter-config.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
