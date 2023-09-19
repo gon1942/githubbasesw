@@ -27,7 +27,7 @@ jobs:
     # 버전을 증가시키고 새 태그를 생성합니다.
     - name: Bump version and push tag
       id: tag_version
-      uses: mathieudutour/github-tag-action@v6
+      uses: mathieudutour/github-tag-action@v6.1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
 
