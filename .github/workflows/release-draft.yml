@@ -54,9 +54,9 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     # CHANGELOG.md 파일을 업데이트합니다.
-    - name: Update Changelog
-      uses: stefanzweifel/changelog-updater-action@v1
-      with:
-        latest-version: ${{ steps.tag_version.outputs.new_tag }}
-        release-notes: "Your release notes here"  # 릴리즈 노트 내용을 입력하세요.
+    # - name: Update Changelog
+    #   uses: stefanzweifel/changelog-updater-action@v1
+    #   with:
+    #     latest-version: ${{ steps.tag_version.outputs.new_tag }}
+    #     release-notes: "Your release notes here"  # 릴리즈 노트 내용을 입력하세요.
     
