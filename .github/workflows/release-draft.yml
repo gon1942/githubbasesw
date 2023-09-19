@@ -47,3 +47,9 @@ jobs:
         tag_name: ${{ steps.tag_version.outputs.new_tag }}  # 새로운 태그 이름을 사용합니다.
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - uses: rhysd/changelog-from-release/action@v3
+      with:
+        file: CHANGELOG.md
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        
