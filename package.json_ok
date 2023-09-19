@@ -7,6 +7,8 @@
     "jest": "jest",
     "test:watch": "jest --watch",
     "linta": "eslint *.js",
+
+
     "lint": "eslint './**/*.js'",
     "postinstall": "husky install && husky set .husky/prepare-commit-msg 'exec < /dev/tty && ./node_modules/.bin/cz --hook || true'"
   },
