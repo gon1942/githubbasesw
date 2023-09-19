@@ -27,8 +27,8 @@ jobs:
           CI_USER: "CHANGELOG Bot"
           CI_EMAIL: "noreply@github.com"
         run: |
-          git config --local user.email "$CI_EMAIL"
-          git config --local user.name "$CI_USER"
+          git config --local user.email "gon1942@gmail.com"
+          git config --local user.name "gon1942"
           git add CHANGELOG.md
           git commit -m '[BOT] 🤖 Updated CHANGELOG.md' && echo ::set-env name=push::1 || echo "No changes to CHANGELOG.md"
 
