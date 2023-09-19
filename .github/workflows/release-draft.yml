@@ -26,7 +26,9 @@ jobs:
       contents: write
       id-token: write 
     steps:
-
+    
+    - name: List files in root(release)
+      run: ls -al
     # 버전을 증가시키고 새 태그를 생성합니다.
     - name: Bump version and push tag
       id: tag_version
