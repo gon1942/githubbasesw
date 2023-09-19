@@ -13,7 +13,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Run tests
-      run: make jest  # 테스트 명령어는 프로젝트에 따라 다를 수 있습니다.
+      run: npm run jest  # 테스트 명령어는 프로젝트에 따라 다를 수 있습니다.
 
   release:
     needs: build  # 빌드 작업이 성공해야 실행됩니다.
