@@ -47,3 +47,32 @@ jobs:
         tag_name: ${{ steps.tag_version.outputs.new_tag }}  # 새로운 태그 이름을 사용합니다.
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
+###
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.release.target_commitish }}
+
+    - name: Update Changelog
+      uses: stefanzweifel/changelog-updater-action@v1
+      with:
+        latest-version: ${{ github.event.release.tag_name }}
+        release-notes: ${{ github.event.release.body }}
+
+    - name: Commit updated CHANGELOG
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        branch: ${{ github.event.release.target_commitish }}
+        commit_message: 'docs(changelog): update changelog'
+        file_pattern: CHANGELOG.md
+    - name: Publish the release notes
+      uses: release-drafter/release-drafter@v5.22.0
+      with:
+        publish: ${{ steps.check-version.outputs.tag != '' }}
+        tag: ${{ steps.check-version.outputs.tag }}
+        config-name: release_drafting_config.yml
+        disable-autolabeler: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.PAT }}
